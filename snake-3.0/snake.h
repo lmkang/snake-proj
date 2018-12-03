@@ -33,7 +33,6 @@ void snake_move(struct list *list, enum direction direction);
 int snake_die(struct list *list, struct rectangle *rect);
 
 // 蛇吃掉食物
-// 边界: rect
 void snake_eat_food(struct list *list, struct food *food);
 
 #endif

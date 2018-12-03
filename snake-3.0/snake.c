@@ -11,6 +11,7 @@ struct list *list_init(void) {
 	list->index = -1;
 	list->x = -1;
 	list->y = -1;
+	list->prev = NULL;
 	list->next = NULL;
 	return list;
 }

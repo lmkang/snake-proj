@@ -19,11 +19,9 @@ struct list *list_init(void) {
 // 在链表尾部插入
 void list_append(struct list *list, struct list *ele) {
 	if(list != NULL) {
-		struct list *prev = list;
-		struct list *p = list->next;
-		while(p != NULL && p != list) {
-			prev = p;
-			p = p->next;
+		struct list *prev = list->prev;
+		if(prev == NULL) {
+			prev = list;
 		}
 		prev->next = ele;
 		ele->prev = prev;
@@ -102,14 +100,10 @@ int snake_die(struct list *list, struct rectangle *rect) {
 // 蛇吃掉食物
 void snake_eat_food(struct list *list, struct food *food) {
 	// 在尾部添加食物
-	struct list *p = list->prev;
 	struct list *tmp = (struct list *) malloc(sizeof(struct list));
 	tmp->index = *food->index;
-	tmp->x = p->x;
-	tmp->y = p->y;
-	p->next = tmp;
-	tmp->prev = p;
-	tmp->next = list;
-	list->prev = tmp;
+	tmp->x = list->prev->x;
+	tmp->y = list->prev->y;
+	list_append(list, tmp);
 	food->flag = 1;
 }

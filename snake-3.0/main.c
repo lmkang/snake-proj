@@ -181,7 +181,7 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char **argv) 
 				release(hDesktop, iconCount, srcPoints, hProcess, ppt, list);
 				return 0;
 			}
-			rand_food(list, &food, &rect_game);
+			food_rand(list, &food, &rect_game);
 		}
 		// 判断游戏是否结束
 		if(snake_die(list, &rect_game)) {
@@ -209,7 +209,7 @@ static struct list *game_init(int *index, int snake_x, int snake_y,
 	// 初始化食物
 	food_init(food, index);
 	// 随机产生食物
-	rand_food(list, food, rect);
+	food_rand(list, food, rect);
 	return list;
 }
 

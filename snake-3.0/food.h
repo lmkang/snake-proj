@@ -21,7 +21,7 @@ void food_init(struct food *food, int *index);
 
 // 随机产生食物
 // 食物的位置范围: rect
-void rand_food(struct list *list, struct food *food, 
+void food_rand(struct list *list, struct food *food, 
 	struct rectangle *rect);
 
 #endif

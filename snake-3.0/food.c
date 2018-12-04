@@ -15,7 +15,7 @@ void food_init(struct food *food, int *index) {
 
 // 随机产生食物
 // 位置不能与list重叠
-void rand_food(struct list *list, struct food *food, 
+void food_rand(struct list *list, struct food *food, 
 	struct rectangle *rect) {
 	
 	int cellCountX = (rect->x2 - rect->x1) / CELL_SIZE;
